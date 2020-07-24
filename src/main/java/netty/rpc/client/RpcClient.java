@@ -8,8 +8,6 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.codec.serialization.ClassResolvers;
 import io.netty.handler.codec.serialization.ObjectDecoder;
 import io.netty.handler.codec.serialization.ObjectEncoder;
-import netty.office.DiscardServer;
-import netty.rpc.server.ServerMsgHandler;
 
 /**
  * Discards any incoming data.
@@ -39,7 +37,7 @@ public class RpcClient {
                         }
                     });
             // Bind and start to accept incoming connections.
-            ChannelFuture f = b.connect("127.0.0.1",8080).sync(); // (7)
+            ChannelFuture f = b.connect("172.20.10.8",8080).sync(); // (7)
             // Wait until the server socket is closed.
             // In this example, this does not happen, but you can do that to gracefully
             // shut down your server.
@@ -47,5 +45,9 @@ public class RpcClient {
         } finally {
             bossGroup.shutdownGracefully();
         }
+    }
+
+    public static void main(String[] args) throws Exception {
+        new RpcClient(8080).run();
     }
 }
