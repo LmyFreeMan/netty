@@ -59,6 +59,6 @@ public class RpcServer {
         if (args.length > 0) {
             port = Integer.parseInt(args[0]);
         }
-        new DiscardServer(port).run();
+        new RpcServer(port).run();
     }
 }
