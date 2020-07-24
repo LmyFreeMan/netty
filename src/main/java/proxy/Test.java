@@ -8,5 +8,6 @@ public class Test {
         StudentDao studentDao=new StudentDaoImp();
         StudentDao proxy = (StudentDao) Proxy.newProxyInstance(studentDao.getClass().getClassLoader(), studentDao.getClass().getInterfaces(), new MyProxy(studentDao));
         proxy.add("test");
+        System.out.println("测试liunx");
     }
 }
