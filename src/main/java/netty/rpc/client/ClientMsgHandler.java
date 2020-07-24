@@ -18,7 +18,6 @@ public class ClientMsgHandler extends ChannelInboundHandlerAdapter {
         user.setName("Jack");
         ctx.channel().writeAndFlush(user);
     }
-
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
        log.debug(msg.toString());
